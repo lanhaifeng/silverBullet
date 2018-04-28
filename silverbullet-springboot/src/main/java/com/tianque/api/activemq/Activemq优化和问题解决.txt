@@ -1,0 +1,58 @@
+Activemq进阶：
+
+1.消息是否消费成功，签收模式的设置：
+    1、AUTO_ACKNOWLEDGE = 1    自动确认
+    2、CLIENT_ACKNOWLEDGE = 2    客户端手动确认
+    3、DUPS_OK_ACKNOWLEDGE = 3    自动批量确认
+    4、SESSION_TRANSACTED = 0    事务提交并确认
+    5、INDIVIDUAL_ACKNOWLEDGE = 4    单条消息确认（自定义ACK_MODE）
+解决方案：一般使用（CLIENT_ACKNOWLEDGE）
+第一种:
+jmsTemplate.setConnectionFactory(connectionFactory);
+jmsTemplate.setSessionAcknowledgeMode(Session.CLIENT_ACKNOWLEDGE);
+第二种：
+<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+     <property name="connectionFactory" ref="connectionFactory"></property>
+     <property name="defaultDestination" ref="destination"></property>
+     <property name="messageConverter" ref="jmsMessageConverter"></property>
+     <property name="sessionAcknowledgeMode" value="2" />
+     这样设置是无效的，就是当设置sessionAcknowledgeMode为2时，虽然是客户端手动确认，但是却被spring自动确认了，造成设置无效。这时只需要把sessionAcknowledgeMode的值设置成activemq自定义的类型INDIVIDUAL_ACKNOWLEDGE = 4即可。
+</bean>
+第三种：
+String brokerUrl = "tcp://localhost:61616?" +   
+                   "jms.optimizeAcknowledge=true" +   
+                   "&jms.optimizeAcknowledgeTimeOut=30000" +   
+                   "&jms.redeliveryPolicy.maximumRedeliveries=6";  
+ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);  
+
+2.消息的不均匀消费
+ActiveMQ的prefetch机制。当消费者去获取消息时，不会一条一条去获取，而是一次性获取一批，默认是1000条。这些预获取的消息，在还没确认消费之前，在管理控制台还是可以看见这些消息的，但是不会再分配给其他消费者，此时这些消息的状态应该算作“已分配未消费”，如果消息最后被消费，则会在服务器端被删除，如果消费者崩溃，则这些消息会被重新分配给新的消费者。但是如果消费者既不消费确认，又不崩溃，那这些消息就永远躺在消费者的缓存区里无法处理。更通常的情况是，消费这些消息非常耗时，你开了10个消费者去处理，结果发现只有一台机器吭哧吭哧处理，另外9台啥事不干。
+解决方案：prefetch设为1
+第一种：
+ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory（）;
+Properties props = new Properties（）;
+props.setProperty（"prefetchPolicy.queuePrefetch"， "1000"）;
+props.setProperty（"prefetchPolicy.queueBrowserPrefetch"， "500"）;
+props.setProperty（"prefetchPolicy.durableTopicPrefetch"， "100"）;
+props.setProperty（"prefetchPolicy.topicPrefetch"， "32766"）;
+factory.setProperties（props）;
+第二种：
+Queue queue = 
+  new ActiveMQQueue（"TEST.QUEUE？consumer.prefetchSize=10"）;
+MessageConsumer consumer = session.createConsumer（queue）;
+
+3.消息重发的设置，包括重发超时，重发次数等
+ActiveMQ的重发策略（Redelivery Policy）自定义配置，其中的配置参数主要有以下几个：
+可用的属性
+ 属性 默认值 说明
+l  collisionAvoidanceFactor  默认值0.15 ,  设置防止冲突范围的正负百分比，只有启用useCollisionAvoidance参数时才生效。
+l  maximumRedeliveries  默认值6 ,  最大重传次数，达到最大重连次数后抛出异常。为-1时不限制次数，为0时表示不进行重传。
+l  maximumRedeliveryDelay  默认值-1,  最大传送延迟，只在useExponentialBackOff为true时有效（V5.5），假设首次重连间隔为10ms，倍数为2，那么第二次重连时间间隔为 20ms，第三次重连时间间隔为40ms，当重连时间间隔大的最大重连时间间隔时，以后每次重连时间间隔都为最大重连时间间隔。
+l  initialRedeliveryDelay  默认值1000L,  初始重发延迟时间
+l  redeliveryDelay  默认值1000L,  重发延迟时间，当initialRedeliveryDelay=0时生效（v5.4）
+l  useCollisionAvoidance  默认值false,  启用防止冲突功能，因为消息接收时是可以使用多线程并发处理的，应该是为了重发的安全性，避开所有并发线程都在同一个时间点进行消息接收处理。所有线程在同一个时间点处理时会发生什么问题呢？应该没有问题，只是为了平衡broker处理性能，不会有时很忙，有时很空闲。
+l  useExponentialBackOff  默认值false,  启用指数倍数递增的方式增加延迟时间。
+l  backOffMultiplier  默认值5,  重连时间间隔递增倍数，只有值大于1和启用useExponentialBackOff参数时才生效。 
+
+解决方案：设置
+

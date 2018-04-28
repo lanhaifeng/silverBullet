@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="silverbullet-thread:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/silverbullet_thread_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="silverbullet-thread/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>

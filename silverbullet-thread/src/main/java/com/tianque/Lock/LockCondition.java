@@ -1,18 +1,49 @@
 package com.tianque.Lock;
 
 import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Created by QQ on 2018/5/3.
+ * @author linlinan
+ * @Date 20180508z
  */
 public class LockCondition {
-    public static void main(String[] args) throws InterruptedException {
-        ReentrantLock lock = new ReentrantLock();
-        Condition condition = lock.newCondition();
-        System.out.println("开始等待");
-        condition.wait();
+    final Lock lock = new ReentrantLock();
+    final Condition notFull  = lock.newCondition();
+    final Condition notEmpty = lock.newCondition();
 
-        lock.unlock();
+    final Object[] items = new Object[100];
+    int putptr, takeptr, count;
+
+    public void put(Object x) throws InterruptedException {
+        lock.lock();
+        try {
+            // 当count等于数组的大小时，当前线程等待，直到notFull通知，再进行生产
+            while (count == items.length)
+                notFull.await();
+            items[putptr] = x;
+            if (++putptr == items.length) putptr = 0;
+            ++count;
+            notEmpty.signal();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public Object take() throws InterruptedException {
+        lock.lock();
+        try {
+            // 当count为0，进入等待，直到notEmpty通知，进行消费。
+            while (count == 0)
+                notEmpty.await();
+            Object x = items[takeptr];
+            if (++takeptr == items.length) takeptr = 0;
+            --count;
+            notFull.signal();
+            return x;
+        } finally {
+            lock.unlock();
+        }
     }
 }

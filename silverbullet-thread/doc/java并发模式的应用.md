@@ -24,6 +24,26 @@
 ## 原子类概述 ##
 
 ##堵塞队列以及线程安全集合等##
+**堵塞队列**  
+方法\处理方式	抛出异常	返回特殊值	一直阻塞	超时退出  
+插入方法	add(e)	offer(e)	put(e)	offer(e,time,unit)  
+移除方法	remove()	poll()	take()	poll(time,unit)  
+检查方法	element()	peek()	不可用	不可用  
+
+JDK7提供了7个阻塞队列。分别是：
+ArrayBlockingQueue ：一个由数组结构组成的有界阻塞队列。
+LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列。
+PriorityBlockingQueue ：一个支持优先级排序的无界阻塞队列。
+DelayQueue：一个使用优先级队列实现的无界阻塞队列。
+SynchronousQueue：一个不存储元素的阻塞队列。
+LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
+LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
+
+堵塞的情况：插入遇到满，获取遇到空。
+堵塞的实现：通过lock锁住当前线程，保证线程安全，当遇到上述情况后。
+condition调用park（unsafe.park()堵塞当前线程，等待unpark）
+
+**线程安全集合**
 
 
 ## 线程池(Executors和ExecutorsService) ##  

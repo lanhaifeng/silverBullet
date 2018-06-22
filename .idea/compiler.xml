@@ -17,6 +17,7 @@
         <module name="silverbullet-redis" />
         <module name="silverbullet-shiro" />
         <module name="silverbullet-springboot" />
+        <module name="silverbullet-springcloud" />
         <module name="silverbullet-test" />
         <module name="silverbullet-thread" />
         <module name="silverbullet-utils" />
@@ -36,6 +37,7 @@
       <module name="silverbullet-redis" target="1.8" />
       <module name="silverbullet-shiro" target="1.8" />
       <module name="silverbullet-springboot" target="1.8" />
+      <module name="silverbullet-springcloud" target="1.7" />
       <module name="silverbullet-test" target="1.8" />
       <module name="silverbullet-thread" target="1.8" />
       <module name="silverbullet-utils" target="1.8" />

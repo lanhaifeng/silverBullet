@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/silverbullet-shiro/pom.xml" />
         <option value="$PROJECT_DIR$/silverbullet-mybatisplus/pom.xml" />
         <option value="$PROJECT_DIR$/silverbullet-disruptor/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springcloud/pom.xml" />
       </list>
     </option>
   </component>

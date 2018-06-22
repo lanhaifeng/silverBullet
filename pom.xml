@@ -78,5 +78,6 @@
     <module>silverbullet-dataexchange</module>
     <module>silverbullet-jdk</module>
     <module>silverbullet-mybatis</module>
+    <module>silverbullet-springcloud</module>
   </modules>
 </project>

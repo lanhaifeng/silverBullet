@@ -10,3 +10,11 @@ mvn deploy:deploy-file -DgroupId=org.apache.thrift -DartifactId=libthrift -Dvers
 -- Dfile表示需要上传的jar包的绝对路径
 -- Durl私服上仓库的url精确地址(打开nexus左侧repositories菜单，可以看到该路径)
 -- DrepositoryId服务器的表示id，在nexus的configuration可以看到
+
+
+Public Repositories，这是一个Repository Group，它所对应的URL为http://localhost:8080/nexus-2.5/content/groups/public/，该Repository  Group包含了多个Repository，其中包含了Releases、Snapshots、Third Party和Central。Repository Group的作用是我们只需要在自己的项目中配置该Repository Group就行了，它将自动从其所包含的Repository中下载依赖，比如如果我们声明对Spring的依赖，那么根据Repository Group中各个Repository的顺序（可以配置），Nexus将首先从Releases中下载Spring，发现没有，再从Snapshots中下载（极大可能也没有，因为它是个Snapshots的Repository），依次查找，最后可能在Central Repository中找到。在配置项目的Repository时，我们应该首先考虑Public Repositories。
+3rd party，该Repository即是存放你公司所购买的第三方软件库的地方，它是一个由Nexus自己维护的一个Repository。
+Apache Snapshots，看名字你就应该知道这是个什么样的Repository，这是一个代理Repository，即最终的依赖还是得在Apache官网上去下载，然后缓存在Nexus中。
+Central，这就是代理Maven Central Repository的Repository。
+Releases，你自己的项目要发布时，就应该发布在这个Repository，他也是Nexus自己维护的Repository，而不是代理。
+Snapshots，你自己项目Snapshot的Repository。

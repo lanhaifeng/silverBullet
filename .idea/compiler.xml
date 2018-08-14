@@ -6,6 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="eureka-client" />
+        <module name="eureka-provider" />
+        <module name="eureka-server" />
+        <module name="eureka-serverregister" />
         <module name="silverbullet-activemq" />
         <module name="silverbullet-common" />
         <module name="silverbullet-dataexchange" />
@@ -16,28 +20,35 @@
         <module name="silverbullet-mybatisplus" />
         <module name="silverbullet-redis" />
         <module name="silverbullet-shiro" />
+        <module name="silverbullet-socket" />
         <module name="silverbullet-springboot" />
-        <module name="silverbullet-springcloud" />
         <module name="silverbullet-test" />
-        <module name="silverbullet-thread" />
         <module name="silverbullet-utils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="eureka-client" target="1.5" />
+      <module name="eureka-provider" target="1.5" />
+      <module name="eureka-server" target="1.5" />
+      <module name="eureka-server (1)" target="1.8" />
+      <module name="eureka-serverregister" target="1.8" />
+      <module name="eureka-servertest" target="1.8" />
+      <module name="eureka-service" target="1.8" />
       <module name="mybatis-plus" target="1.8" />
       <module name="silverBullet" target="1.8" />
       <module name="silverbullet-activemq" target="1.8" />
       <module name="silverbullet-common" target="1.8" />
-      <module name="silverbullet-dataexchange" target="1.8" />
+      <module name="silverbullet-dataexchange" target="1.5" />
       <module name="silverbullet-designpatterns" target="1.8" />
-      <module name="silverbullet-disruptor" target="1.8" />
+      <module name="silverbullet-disruptor" target="1.5" />
       <module name="silverbullet-jdk" target="1.8" />
       <module name="silverbullet-mybatis" target="1.8" />
-      <module name="silverbullet-mybatisplus" target="1.8" />
+      <module name="silverbullet-mybatisplus" target="1.5" />
       <module name="silverbullet-redis" target="1.8" />
-      <module name="silverbullet-shiro" target="1.8" />
+      <module name="silverbullet-shiro" target="1.5" />
+      <module name="silverbullet-socket" target="1.8" />
       <module name="silverbullet-springboot" target="1.8" />
-      <module name="silverbullet-springcloud" target="1.7" />
+      <module name="silverbullet-springcloud" target="1.5" />
       <module name="silverbullet-test" target="1.8" />
       <module name="silverbullet-thread" target="1.8" />
       <module name="silverbullet-utils" target="1.8" />

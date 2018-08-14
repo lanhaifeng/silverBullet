@@ -79,5 +79,7 @@
     <module>silverbullet-jdk</module>
     <module>silverbullet-mybatis</module>
     <module>silverbullet-springcloud</module>
+    <module>silverbullet-springcloud</module>
+      <module>silverbullet-socket</module>
   </modules>
 </project>

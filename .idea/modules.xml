@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/silverbullet-jdk/silverbullet-jdk.iml" filepath="$PROJECT_DIR$/silverbullet-jdk/silverbullet-jdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-mybatis/silverbullet-mybatis.iml" filepath="$PROJECT_DIR$/silverbullet-mybatis/silverbullet-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-mybatisplus/silverbullet-mybatisplus.iml" filepath="$PROJECT_DIR$/silverbullet-mybatisplus/silverbullet-mybatisplus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/silverbullet-netty/silverbullet-netty.iml" filepath="$PROJECT_DIR$/silverbullet-netty/silverbullet-netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-redis/silverbullet-redis.iml" filepath="$PROJECT_DIR$/silverbullet-redis/silverbullet-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-shiro/silverbullet-shiro.iml" filepath="$PROJECT_DIR$/silverbullet-shiro/silverbullet-shiro.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-springboot/silverbullet-springboot.iml" filepath="$PROJECT_DIR$/silverbullet-springboot/silverbullet-springboot.iml" />

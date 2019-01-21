@@ -18,9 +18,13 @@
     <file url="file://$PROJECT_DIR$/silverbullet-springcloud/eureka-client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/silverbullet-springcloud/eureka-provider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/silverbullet-springcloud/eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/silverbullet-springmvc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/silverbullet-springmvc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/silverbullet-springmvc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/silverbullet-test" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/silverbullet-thread" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/silverbullet-utils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/silverbullet-web" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

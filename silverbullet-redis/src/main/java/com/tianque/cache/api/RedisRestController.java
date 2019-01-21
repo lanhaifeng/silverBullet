@@ -2,9 +2,13 @@ package com.tianque.cache.api;
 
 import com.tianque.cache.RedisCache;
 import com.tianque.cache.redis.jedis.JedisCache;
+import com.tianque.cache.redis.lettuce.LettuceCache;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @className: redisRestController
@@ -20,28 +24,42 @@ public class RedisRestController implements RedisCache<String,String> {
     @Autowired
     JedisCache jedisCache;
 
+    @Autowired
+    LettuceCache lettuceCache;
+
     @Override
-    @RequestMapping("/setnx")
-    public void setnx(String key, String value) {
+    @RequestMapping("/setnx/{key}/{value}")
+    public void setnx(@PathVariable("key")String key, @PathVariable("value")String value) {
         jedisCache.setnx(key, value);
     }
 
     @Override
-    @RequestMapping("/set")
-    public void set(String key, String value) {
-        jedisCache.set(key, value);
+    @RequestMapping("/set/{key}/{value}")
+    public void set(@PathVariable("key")String key, @PathVariable("value")String value) {
+        lettuceCache.set(key, value);
     }
 
     @Override
-    @RequestMapping("/setexpire")
-    public void set(String key, String value, int expire) {
-        jedisCache.set(key, value,expire);
+    @RequestMapping("/setexpire/{key}/{value}/{expire}")
+    public void set(@PathVariable("key")String key, @PathVariable("value")String value, @PathVariable("expire")int expire) {
+        jedisCache.set(key, value, expire);
     }
 
     @Override
-    @RequestMapping("/get/")
-    public String get(String key) {
+    @RequestMapping("/get/{key}")
+    public String get(@PathVariable("key")String key) {
         return jedisCache.get(key);
     }
 
+    @Override
+    @RequestMapping("/lpush/{key}/{value}")
+    public void lpush(@PathVariable("key")String key, @PathVariable("value")String... values) {
+        jedisCache.lpush(key,values);
+    }
+
+    @Override
+    @RequestMapping("/lrange/{key}/{start}/{end}")
+    public List<String> lrange(@PathVariable("key")String key, @PathVariable("start")long start, @PathVariable("end")long end) {
+        return jedisCache.lrange(key,start,end);
+    }
 }

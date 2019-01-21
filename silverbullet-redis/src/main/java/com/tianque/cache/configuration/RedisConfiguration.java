@@ -1,8 +1,9 @@
 package com.tianque.cache.configuration;
 
 import com.tianque.cache.properties.RedisProperties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.tianque.cache.redis.lettuce.LettucePool;
+import com.tianque.cache.redis.lettuce.LettucePoolConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
@@ -19,13 +20,9 @@ import redis.clients.jedis.JedisSentinelPool;
  * @date: 2018-12-21 13:51
  * @version: 1.0
  */
+@Slf4j
 @Configuration
 public class RedisConfiguration {
-
-    private static final Logger logger = LoggerFactory.getLogger(RedisConfiguration.class);
-
-
-    private final String MASTER_NAME = "mymaster";
 
     @Autowired
     RedisProperties redisProperties;
@@ -44,11 +41,33 @@ public class RedisConfiguration {
     @Bean
     @ConditionalOnBean(JedisPoolConfig.class)
     public JedisSentinelPool jedisSentinelPool(JedisPoolConfig jedisPoolConfig){
-        if(logger.isDebugEnabled()){
-            logger.debug("JedisSentinelPool is init success for " + redisProperties.getSentinels());
+        if(log.isDebugEnabled()){
+            log.debug("JedisSentinelPool is init success for " + redisProperties.getSentinels());
         }
         Assert.notNull(redisProperties.getSentinels(),"system can not read redis sentinels set from reids.properties");
-        JedisSentinelPool jedisSentinelPool = new JedisSentinelPool(MASTER_NAME,redisProperties.getSentinels(),jedisPoolConfig);
+        JedisSentinelPool jedisSentinelPool = new JedisSentinelPool(redisProperties.getMasterName(),redisProperties.getSentinels(),jedisPoolConfig);
+        return  jedisSentinelPool;
+    }
+
+    @Bean
+    @Primary
+    public LettucePoolConfig lettucePoolConfig(){
+        LettucePoolConfig lettucePoolConfig = new LettucePoolConfig();
+        lettucePoolConfig.setMaxTotal(redisProperties.getMaxTotal());
+        lettucePoolConfig.setMinIdle(redisProperties.getMinIdle());
+        lettucePoolConfig.setMaxIdle(redisProperties.getMaxIdle());
+        lettucePoolConfig.setMaxWaitMillis(redisProperties.getMaxWaitMills());
+        return lettucePoolConfig;
+    }
+
+    @Bean
+    @ConditionalOnBean(LettucePoolConfig.class)
+    public LettucePool lettucePool(LettucePoolConfig lettucePoolConfig){
+        if(log.isDebugEnabled()){
+            log.debug("JedisSentinelPool is init success for " + redisProperties.getSentinels());
+        }
+        Assert.notNull(redisProperties.getSentinels(),"system can not read redis sentinels set from reids.properties");
+        LettucePool jedisSentinelPool = new LettucePool(redisProperties.getSentinels(),redisProperties.getMasterName(),lettucePoolConfig);
         return  jedisSentinelPool;
     }
 

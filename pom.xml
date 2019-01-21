@@ -72,11 +72,11 @@
       <scope>provided</scope>
     </dependency>
     <!--提供丰富的Java工具方法-->
-    <dependency>
-      <groupId>cn.hutool</groupId>
-      <artifactId>hutool-all</artifactId>
-      <version>4.1.4</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>cn.hutool</groupId>-->
+      <!--<artifactId>hutool-all</artifactId>-->
+      <!--<version>4.1.4</version>-->
+    <!--</dependency>-->
     <dependency>
       <groupId>net.logstash.logback</groupId>
       <artifactId>logstash-logback-encoder</artifactId>
@@ -97,5 +97,11 @@
     <module>silverbullet-springcloud</module>
     <module>silverbullet-springcloud</module>
     <module>silverbullet-netty</module>
+      <module>silverbullet-springmvc</module>
+      <module>silverbullet-springmvc</module>
+      <module>silverbullet-springmvc</module>
+      <module>silverbullet-springmvc</module>
+      <module>silverbullet-web</module>
+      <module>silverbullet-springmvc</module>
   </modules>
 </project>

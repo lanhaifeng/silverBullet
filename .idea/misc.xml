@@ -31,6 +31,8 @@
         <option value="$PROJECT_DIR$/silverbullet-socket/pom.xml" />
         <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-servertest/pom.xml" />
         <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-service/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springmvc/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-web/pom.xml" />
       </set>
     </option>
   </component>
@@ -49,5 +51,6 @@
         </entry>
       </map>
     </option>
+    <option name="mySupportsUserInfoFilter" value="true" />
   </component>
 </project>

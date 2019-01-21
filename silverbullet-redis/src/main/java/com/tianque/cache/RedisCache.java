@@ -1,6 +1,8 @@
 package com.tianque.cache;
 
-import reactor.util.annotation.Nullable;
+import org.springframework.lang.Nullable;
+
+import java.util.List;
 
 /**
  * @className:
@@ -14,4 +16,9 @@ public interface RedisCache<K,V> extends Cache<K,V>{
     @Nullable
     void setnx(K key,V value);
 
+    @Nullable
+    void lpush(K key,V... values);
+
+    @Nullable
+    List<String> lrange(K key, long start, long end);
 }

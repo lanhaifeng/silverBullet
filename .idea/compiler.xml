@@ -51,9 +51,11 @@
       <module name="silverbullet-socket" target="1.8" />
       <module name="silverbullet-springboot" target="1.8" />
       <module name="silverbullet-springcloud" target="1.8" />
+      <module name="silverbullet-springmvc" target="1.7" />
       <module name="silverbullet-test" target="1.8" />
       <module name="silverbullet-thread" target="1.8" />
       <module name="silverbullet-utils" target="1.8" />
+      <module name="silverbullet-web" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

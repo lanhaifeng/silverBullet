@@ -3,6 +3,7 @@ package com.tianque.cache.api;
 import com.tianque.cache.RedisCache;
 import com.tianque.cache.redis.jedis.JedisCache;
 import com.tianque.cache.redis.lettuce.LettuceCache;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import java.util.List;
  * @date: 2018-12-24 9:50
  * @version: 1.0
  */
+@Slf4j
 @RestController
 @RequestMapping("/redisManage")
 public class RedisRestController implements RedisCache<String,String> {
@@ -36,7 +38,7 @@ public class RedisRestController implements RedisCache<String,String> {
     @Override
     @RequestMapping("/set/{key}/{value}")
     public void set(@PathVariable("key")String key, @PathVariable("value")String value) {
-        lettuceCache.set(key, value);
+        jedisCache.set(key, value);
     }
 
     @Override
@@ -61,5 +63,23 @@ public class RedisRestController implements RedisCache<String,String> {
     @RequestMapping("/lrange/{key}/{start}/{end}")
     public List<String> lrange(@PathVariable("key")String key, @PathVariable("start")long start, @PathVariable("end")long end) {
         return jedisCache.lrange(key,start,end);
+    }
+
+    @RequestMapping("/minus/{key}")
+    public String minus(@PathVariable("key")String key) {
+        String valRes;
+        try{
+            Long valNum = Long.valueOf(jedisCache.get(key));
+            if(valNum<=0){
+                valRes = "0";
+            }else{
+                valRes = String.valueOf(valNum-1);
+            }
+        } catch (ClassCastException e){
+            log.error(e.getStackTrace().toString());
+            valRes =  "-1";
+        }
+        jedisCache.set(key,valRes);
+        return valRes;
     }
 }

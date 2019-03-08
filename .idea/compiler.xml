@@ -18,6 +18,7 @@
         <module name="silverbullet-jdk" />
         <module name="silverbullet-mybatis" />
         <module name="silverbullet-mybatisplus" />
+        <module name="silverbullet-nacos" />
         <module name="silverbullet-netty" />
         <module name="silverbullet-redis" />
         <module name="silverbullet-shiro" />
@@ -45,6 +46,7 @@
       <module name="silverbullet-jdk" target="1.8" />
       <module name="silverbullet-mybatis" target="1.8" />
       <module name="silverbullet-mybatisplus" target="1.8" />
+      <module name="silverbullet-nacos" target="1.8" />
       <module name="silverbullet-netty" target="1.7" />
       <module name="silverbullet-redis" target="1.8" />
       <module name="silverbullet-shiro" target="1.8" />

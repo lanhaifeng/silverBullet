@@ -1,4 +1,4 @@
-package com.tianque;
+package com.tianque.netty;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -13,7 +13,7 @@ import java.util.Iterator;
  * @author: mr.0
  * @date: 2018-12-13 16:11
  */
-public class NIOClientDemo {
+public class NIOClient {
     public static void main(String[] args) {
         try(SocketChannel socketChannel = SocketChannel.open(); Selector selector  = Selector.open()){
             socketChannel.configureBlocking(false);

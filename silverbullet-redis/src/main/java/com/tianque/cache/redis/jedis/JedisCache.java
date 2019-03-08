@@ -31,37 +31,49 @@ public class JedisCache implements RedisCache<String,String> {
 
     @Override
     public void setnx(String key, String value) {
-        getClient().setnx(key,value);
+        try (Jedis jedis = getClient()){
+            jedis.setnx(key,value);
+        }
     }
 
     @Override
     public void set(String key, String value) {
-        getClient().set(key,value);
+        try (Jedis jedis = getClient()) {
+            jedis.set(key, value);
+        }
     }
 
     @Override
     public void set(String key, String value, int expire) {
-        Assert.notNull(key);
-        if(expire<0){
-            set(key,value);
-            return;
+        try (Jedis jedis = getClient()) {
+            Assert.notNull(key);
+            if (expire < 0) {
+                set(key, value);
+                return;
+            }
+            jedis.set(key, value, SetParams.setParams().ex(expire));
         }
-        getClient().set(key,value, SetParams.setParams().ex(expire));
     }
 
     @Override
     public String get(String key) {
-        return getClient().get(key);
+        try (Jedis jedis = getClient()) {
+            return jedis.get(key);
+        }
     }
 
     @Override
     public void lpush(String key, String... values) {
-        getClient().lpush(key,values);
+        try (Jedis jedis = getClient()) {
+            jedis.lpush(key, values);
+        }
     }
 
     @Override
     public List<String> lrange(String key, long start, long end) {
-        return getClient().lrange(key,start,end);
+        try (Jedis jedis = getClient()) {
+            return jedis.lrange(key, start, end);
+        }
     }
 
 }

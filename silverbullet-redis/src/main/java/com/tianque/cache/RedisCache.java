@@ -21,4 +21,5 @@ public interface RedisCache<K,V> extends Cache<K,V>{
 
     @Nullable
     List<String> lrange(K key, long start, long end);
+
 }

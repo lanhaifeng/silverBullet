@@ -24,6 +24,7 @@
         <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-serverregister/pom.xml" />
         <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-client/pom.xml" />
         <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-nacos/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

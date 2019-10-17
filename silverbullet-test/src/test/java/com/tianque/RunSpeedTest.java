@@ -116,5 +116,11 @@ public class RunSpeedTest {
     }
 
 
+    @Test
+    public void TestGC(){
+        
+    }
+
+
 
 }

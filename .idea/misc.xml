@@ -19,7 +19,22 @@
         <option value="$PROJECT_DIR$/silverbullet-shiro/pom.xml" />
         <option value="$PROJECT_DIR$/silverbullet-mybatisplus/pom.xml" />
         <option value="$PROJECT_DIR$/silverbullet-disruptor/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springcloud/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-serverregister/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-client/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-nacos/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/silverbullet-socket/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-servertest/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springcloud/eureka-service/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-springmvc/pom.xml" />
+        <option value="$PROJECT_DIR$/silverbullet-web/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

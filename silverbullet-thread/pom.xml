@@ -8,10 +8,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>silverbullet</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>silverbullet</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>../silverbullet-socket</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

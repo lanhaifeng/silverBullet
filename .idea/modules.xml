@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/silverbullet-springcloud/eureka-client/eureka-client.iml" filepath="$PROJECT_DIR$/silverbullet-springcloud/eureka-client/eureka-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/silverbullet-springcloud/eureka-provider/eureka-provider.iml" filepath="$PROJECT_DIR$/silverbullet-springcloud/eureka-provider/eureka-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/silverbullet-springcloud/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/silverbullet-springcloud/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverBullet.iml" filepath="$PROJECT_DIR$/silverBullet.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-activemq/silverbullet-activemq.iml" filepath="$PROJECT_DIR$/silverbullet-activemq/silverbullet-activemq.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-common/silverbullet-common.iml" filepath="$PROJECT_DIR$/silverbullet-common/silverbullet-common.iml" />
@@ -11,9 +14,12 @@
       <module fileurl="file://$PROJECT_DIR$/silverbullet-jdk/silverbullet-jdk.iml" filepath="$PROJECT_DIR$/silverbullet-jdk/silverbullet-jdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-mybatis/silverbullet-mybatis.iml" filepath="$PROJECT_DIR$/silverbullet-mybatis/silverbullet-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-mybatisplus/silverbullet-mybatisplus.iml" filepath="$PROJECT_DIR$/silverbullet-mybatisplus/silverbullet-mybatisplus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/silverbullet-nacos/silverbullet-nacos.iml" filepath="$PROJECT_DIR$/silverbullet-nacos/silverbullet-nacos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/silverbullet-netty/silverbullet-netty.iml" filepath="$PROJECT_DIR$/silverbullet-netty/silverbullet-netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-redis/silverbullet-redis.iml" filepath="$PROJECT_DIR$/silverbullet-redis/silverbullet-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-shiro/silverbullet-shiro.iml" filepath="$PROJECT_DIR$/silverbullet-shiro/silverbullet-shiro.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-springboot/silverbullet-springboot.iml" filepath="$PROJECT_DIR$/silverbullet-springboot/silverbullet-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/silverbullet-springcloud/silverbullet-springcloud.iml" filepath="$PROJECT_DIR$/silverbullet-springcloud/silverbullet-springcloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-test/silverbullet-test.iml" filepath="$PROJECT_DIR$/silverbullet-test/silverbullet-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-thread/silverbullet-thread.iml" filepath="$PROJECT_DIR$/silverbullet-thread/silverbullet-thread.iml" />
       <module fileurl="file://$PROJECT_DIR$/silverbullet-utils/silverbullet-utils.iml" filepath="$PROJECT_DIR$/silverbullet-utils/silverbullet-utils.iml" />

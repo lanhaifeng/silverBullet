@@ -64,8 +64,24 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.7</version>
     </dependency>
-
-
+    <!--简化代码-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.20</version>
+      <scope>provided</scope>
+    </dependency>
+    <!--提供丰富的Java工具方法-->
+    <!--<dependency>-->
+      <!--<groupId>cn.hutool</groupId>-->
+      <!--<artifactId>hutool-all</artifactId>-->
+      <!--<version>4.1.4</version>-->
+    <!--</dependency>-->
+    <dependency>
+      <groupId>net.logstash.logback</groupId>
+      <artifactId>logstash-logback-encoder</artifactId>
+      <version>5.1</version>
+    </dependency>
   </dependencies>
 
   <modules>
@@ -78,5 +94,14 @@
     <module>silverbullet-dataexchange</module>
     <module>silverbullet-jdk</module>
     <module>silverbullet-mybatis</module>
+    <module>silverbullet-springcloud</module>
+    <module>silverbullet-springcloud</module>
+    <module>silverbullet-netty</module>
+      <module>silverbullet-springmvc</module>
+      <module>silverbullet-springmvc</module>
+      <module>silverbullet-springmvc</module>
+      <module>silverbullet-springmvc</module>
+      <module>silverbullet-web</module>
+      <module>silverbullet-springmvc</module>
   </modules>
 </project>
